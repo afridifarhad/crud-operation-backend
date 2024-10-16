@@ -1,13 +1,15 @@
 // import express from 'express'
 const express = require('express')
 // import { Createuser } from '../controller/UserController'
-const Createuser = require ('../controller/UserController')
+const {Createuser,GetUser} = require ('../controller/UserController')
 
 
-const routes = express.Router()
 
-routes.post('/create', Createuser)
+const routers = express.Router()
+
+routers.post('/create', Createuser)
+routers.get('/get', GetUser)
 
 // export default routes
-module.exports = routes
+module.exports = routers
 // module.exports = Createuser
