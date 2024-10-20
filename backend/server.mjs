@@ -1,7 +1,7 @@
 import express from 'express'
 import dbCon from './utils/db.js'
 import dotenv from 'dotenv'
-import routes from './routes/routes.js'
+import routers from './routes/routes.js'
 import cors from 'cors'
 
 dotenv.config()
@@ -9,13 +9,14 @@ dotenv.config()
 
 const app = express()
 dbCon() 
-
-app.use(express.json())
 app.use(cors())
 
+app.use(express.json())
 
-app.use('/api', routes)
 
-app.listen(4000, () => {
+
+app.use('/api', routers)
+
+app.listen(process.env.PORT, () => {
     console.log("server is listen port No 4000")
 })
